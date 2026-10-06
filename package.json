@@ -1,0 +1,19 @@
+{
+  "name": "gst-invoice-pro",
+  "version": "1.0.0",
+  "description": "Indian GST Invoice Generator tool built with pure HTML5, CSS3, and vanilla JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "gst",
+    "invoice",
+    "generator",
+    "calculator",
+    "india"
+  ],
+  "author": "",
+  "license": "MIT"
+}

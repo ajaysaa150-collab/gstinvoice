@@ -1,0 +1,7 @@
+# robots.txt for GST Invoice Pro
+# Replace https://www.example.com/ with your actual production domain before deployment
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
