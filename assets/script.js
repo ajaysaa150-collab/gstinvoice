@@ -845,7 +845,7 @@
   }
 
   // =========================================================================
-  // 6. Contact Form Frontend Handler (No Backend / Demo Notice)
+  // 6. Contact Form Handler (Send to WhatsApp: +91 6392881829)
   // =========================================================================
   function initContactForm() {
     const contactForm = document.getElementById('contact-us-form');
@@ -863,7 +863,24 @@
         return;
       }
 
-      showToast(`Thank you, ${name}! Your demonstration message was captured locally. This frontend demo does not send external emails.`, 'success');
+      const whatsappNumber = '916392881829';
+      const formattedMessage =
+        `*New Inquiry from GST Invoice Website*\n\n` +
+        `👤 *Name:* ${name}\n` +
+        `📧 *Email:* ${email}\n` +
+        `📌 *Topic:* ${subject}\n\n` +
+        `💬 *Message:*\n${message}`;
+
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(formattedMessage)}`;
+
+      showToast(`Opening WhatsApp to send your message...`, 'success');
+
+      // Attempt to open in new tab/app, fallback to current window if blocked
+      const win = window.open(whatsappUrl, '_blank');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+
       contactForm.reset();
     });
   }
